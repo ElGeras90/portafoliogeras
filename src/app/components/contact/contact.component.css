@@ -1,0 +1,21 @@
+#contact {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #333;
+}
+
+.text-danger {
+    font-size: 14px;
+}
+
+.colors {
+    background: linear-gradient(to top, red, black);
+    color: white;
+}

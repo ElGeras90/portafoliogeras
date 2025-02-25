@@ -1,0 +1,72 @@
+.projects-container {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+/* Tarjetas de proyectos */
+.project-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 15px;
+    transition: transform 0.3s ease-in-out, opacity 1s ease-in-out;
+    opacity: 0;
+    /* Ocultas inicialmente */
+    transform: translateY(30px);
+    /* Posicionadas abajo */
+}
+
+.project-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.project-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.project-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.project-info p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Lista de tecnologías */
+.tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    /* Permite que los elementos se ajusten automáticamente */
+    gap: 8px;
+    /* Espacio entre badges */
+    justify-content: center;
+}
+
+/* Badges de tecnologías */
+.tech-badge {
+    background: linear-gradient(135deg, red, black);
+    /* Degradado de rojo a azul */
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    /* Evita cortes de palabra */
+    max-width: 100%;
+    /* Evita desbordamiento */
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: inline-block;
+}

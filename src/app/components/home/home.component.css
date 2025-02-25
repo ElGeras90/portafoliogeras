@@ -1,0 +1,97 @@
+/* Contenedor principal con fondo */
+#homes {
+    position: relative;
+    background: url('/assets/image.png') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Fondo binario */
+#binary-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+/* Animaciones de los números binarios */
+.binary {
+    position: absolute;
+    font-size: 20px;
+    color: rgba(0, 255, 0, 0.5);
+    font-family: monospace;
+    animation: float 10s infinite linear;
+    opacity: 0.6;
+}
+
+@keyframes float {
+    from {
+        transform: translateY(100vh);
+    }
+
+    to {
+        transform: translateY(-200vh);
+    }
+}
+
+/* Estilos de la imagen de perfil */
+.profile-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 4px solid transparent;
+    background: linear-gradient(45deg, red, black);
+    padding: 2px;
+    margin-bottom: 5px;
+    margin-top: 15px;
+}
+
+/* Contenedor de la información sobre el fondo */
+.content {
+    position: relative;
+    z-index: 10;
+    color: black;
+}
+
+/* Animación de aparición del contenido */
+#homes .content {
+    opacity: 0;
+    transform: translateX(100px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+#homes.show .content {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Estilos del texto */
+.title {
+    background: linear-gradient(to top, red, black);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2rem;
+    /* Ajusta según necesites */
+    font-weight: bold;
+}
+
+
+.description {
+    font-size: 1.2rem;
+    text-align: left;
+}
+
+/* Destacar tecnologías */
+strong {
+    font-weight: bold;
+    background: linear-gradient(to top, red, black);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

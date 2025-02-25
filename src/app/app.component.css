@@ -1,0 +1,21 @@
+html {
+    scroll-behavior: smooth;
+}
+
+.section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: #f8f9fa;
+    margin-top: 60px;
+}
+
+.navbar {
+    z-index: 1000;
+}
+
+.container {
+    padding-top: 70px;
+}
