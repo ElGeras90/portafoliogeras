@@ -1,9 +1,121 @@
-<app-navbar></app-navbar>
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+<canvas class="network-canvas" id="networkCanvas" aria-hidden="true"></canvas>
+<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+<div class="noise" aria-hidden="true"></div>
+<div class="page-glow glow-a" aria-hidden="true"></div>
+<div class="page-glow glow-b" aria-hidden="true"></div>
 
-<div class="container mt-5 main-container">
-  <app-home id="home"></app-home>
-  <app-about id="about"></app-about>
-  <app-projects id="projects"></app-projects>
-  <app-skills id="skills"></app-skills>
-  <app-contact id="contact"></app-contact>
-</div>
+<header class="topbar" id="topbar">
+  <a class="brand" href="#home" aria-label="Ir al inicio">
+    <span class="brand-mark">G</span><span class="brand-name">GERAS<span class="dot">.</span></span>
+  </a>
+  <nav class="nav" aria-label="Navegación principal">
+    <a href="#about">Perfil</a><a href="#stack">Stack</a><a href="#projects">Proyectos</a><a href="#architecture">Arquitectura</a><a href="#ai">AI</a><a href="#contact">Contacto</a>
+  </nav>
+  <div class="nav-actions">
+    <button class="icon-button" type="button" (click)="toggleTheme()" aria-label="Cambiar tema" title="Cambiar tema">
+      <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"/></svg>
+      <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5 8.5 8.5 0 1 0 20.5 14.2Z"/></svg>
+    </button>
+    <a class="btn btn-small btn-ghost desktop-only" href="https://github.com/ElGeras90" target="_blank" rel="noreferrer">GitHub</a>
+    <button class="menu-button" type="button" (click)="toggleMenu()" [attr.aria-expanded]="mobileOpen" aria-label="Abrir menú"><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" [hidden]="!mobileOpen" (click)="closeMenu()">
+    <a href="#about">Perfil</a><a href="#stack">Stack</a><a href="#projects">Proyectos</a><a href="#architecture">Arquitectura</a><a href="#ai">AI</a><a href="#contact">Contacto</a><a href="https://github.com/ElGeras90" target="_blank" rel="noreferrer">GitHub ↗</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero section" id="home">
+    <div class="hero-grid container">
+      <div class="hero-copy reveal">
+        <div class="eyebrow"><span class="status-dot"></span> SOFTWARE ENGINEERING <span>/</span> MX</div>
+        <p class="hero-kicker">JUAN GERARDO GARCÍA SALAZAR // SENIOR SOFTWARE DEVELOPER</p>
+        <h1>Diseño sistemas <span class="hero-outline">preparados para</span><span class="gradient-text hero-word">{{ heroWord }}</span></h1>
+        <p class="hero-lead">Arquitectura, backend, datos, integraciones, frontend e infraestructura. Construyo el camino completo desde una regla de negocio hasta un sistema operando en producción.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">Ver lo que construyo →</a>
+          <a class="btn btn-ghost" href="https://github.com/ElGeras90" target="_blank" rel="noreferrer">github.com/ElGeras90 ↗</a>
+        </div>
+        <div class="hero-metrics">
+          <div><strong>12+</strong><span>años creando software</span></div>
+          <div><strong>END-TO-END</strong><span>database → cloud</span></div>
+          <div><strong>FINTECH</strong><span>integraciones y compliance</span></div>
+        </div>
+      </div>
+
+      <div class="system-map-wrap reveal delay-1" aria-label="Arquitectura de software">
+        <div class="map-toolbar"><span></span><span></span><span></span><strong>system.graph</strong><em>live</em></div>
+        <div class="system-map">
+          <div class="grid-lines"></div>
+          <div class="system-flow">
+            <div class="node"><span class="node-icon">UI</span><div><small>CLIENT</small><strong>Angular</strong></div></div><i></i>
+            <div class="node"><span class="node-icon">↔</span><div><small>EDGE</small><strong>API / Proxy</strong></div></div><i></i>
+            <div class="node main-node"><span class="node-icon">{ }</span><div><small>APPLICATION</small><strong>Backend Services</strong></div></div><i></i>
+            <div class="system-bottom"><div class="node"><span class="node-icon">DB</span><div><small>DATA</small><strong>PostgreSQL</strong></div></div><div class="node"><span class="node-icon">SOAP</span><div><small>INTEGRATION</small><strong>External APIs</strong></div></div></div>
+          </div>
+          <div class="code-float code-a">POST /api/v1/transactions <b>200</b></div><div class="code-float code-b">event.publish(<b>audit</b>)</div><div class="code-float code-c">docker compose <b>up -d</b></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="tech-marquee" aria-label="Tecnologías principales"><div class="marquee-track"><span>JAVA</span><i>✦</i><span>SPRING BOOT</span><i>✦</i><span>NODE.JS</span><i>✦</i><span>ANGULAR</span><i>✦</i><span>PYTHON</span><i>✦</i><span>POSTGRESQL</span><i>✦</i><span>DOCKER</span><i>✦</i><span>REST</span><i>✦</i><span>SOAP</span><i>✦</i><span>AWS</span><i>✦</i><span>JAVA</span><i>✦</i><span>SPRING BOOT</span><i>✦</i><span>NODE.JS</span><i>✦</i><span>ANGULAR</span><i>✦</i><span>PYTHON</span><i>✦</i><span>POSTGRESQL</span><i>✦</i><span>DOCKER</span><i>✦</i></div></div>
+
+  <section class="section section-soft" id="about">
+    <div class="container">
+      <div class="section-heading reveal"><span class="section-index">01 / PERFIL</span><h2>Más que escribir código.</h2><p>Diseño soluciones completas: arquitectura, datos, negocio, seguridad, integración, despliegue y operación.</p></div>
+      <div class="about-grid">
+        <article class="panel profile-panel tilt-card reveal">
+          <div class="panel-label">PROFILE</div>
+          <div class="profile-identity"><div class="profile-photo-wrap"><img src="assets/gera.jpg" alt="Juan Gerardo García Salazar" class="profile-photo"><span>GERAS // DEV</span></div><div><small>Juan Gerardo García Salazar</small><h3>Software Engineer orientado a sistemas empresariales.</h3></div></div>
+          <p>Desarrollo software desde 2014 y trabajo con soluciones que requieren reglas de negocio complejas, múltiples servicios, seguridad, integraciones externas e infraestructura reproducible.</p>
+          <p>Mi experiencia cubre web y móvil con Angular, Ionic y .NET MAUI; backend con Java, Spring Boot, Node.js, Express, NestJS y Laravel; y datos con PostgreSQL, MSSQL, MySQL y MongoDB. He trabajado en finanzas, comercio y automatización de procesos.</p>
+          <div class="profile-metrics"><div><strong>2014</strong><span>trayectoria profesional</span></div><div><strong>FULL STACK</strong><span>web + mobile + backend</span></div><div><strong>FINTECH</strong><span>dominio destacado</span></div></div>
+        </article>
+        <article class="panel workflow-panel reveal delay-1"><div class="panel-label">HOW I THINK</div><div class="workflow-row"><span>01</span><div><strong>Analyze</strong><small>Procesos, reglas y restricciones reales</small></div></div><div class="workflow-row"><span>02</span><div><strong>Architect</strong><small>Dominios, servicios, contratos y datos</small></div></div><div class="workflow-row"><span>03</span><div><strong>Build</strong><small>Backend, frontend, APIs e integraciones</small></div></div><div class="workflow-row"><span>04</span><div><strong>Ship</strong><small>Docker, CI/CD, Linux, SSL y observabilidad</small></div></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="stack">
+    <div class="container">
+      <div class="section-heading reveal"><span class="section-index">02 / STACK</span><h2>Tecnología elegida por problema, no por moda.</h2><p>El portafolio original ya incluía una biblioteca visual de tecnologías; aquí la reutilizo y la integro con el nuevo diseño.</p></div>
+      <div class="skills-shell reveal"><app-skills></app-skills></div>
+      <div class="stack-grid">
+        <article class="stack-card featured tilt-card reveal"><span class="stack-number">01</span><h3>Backend Engineering</h3><p>Servicios empresariales, dominio, APIs, seguridad, persistencia e integraciones.</p><div class="tech-cloud"><span>Java</span><span>Spring Boot</span><span>Node.js</span><span>NestJS</span><span>Express</span><span>Python</span><span>Laravel</span><span>REST</span><span>SOAP</span><span>WSDL</span></div></article>
+        <article class="stack-card tilt-card reveal"><span class="stack-number">02</span><h3>Frontend & Mobile</h3><p>Interfaces administrativas y experiencias web/móviles.</p><div class="tech-cloud"><span>Angular</span><span>Ionic</span><span>.NET MAUI</span><span>TypeScript</span><span>JavaScript</span><span>HTML</span><span>CSS</span></div></article>
+        <article class="stack-card tilt-card reveal"><span class="stack-number">03</span><h3>Data</h3><p>Modelado y persistencia para procesos transaccionales.</p><div class="tech-cloud"><span>PostgreSQL</span><span>MSSQL</span><span>MySQL</span><span>MongoDB</span><span>SQLite</span><span>SQL</span></div></article>
+        <article class="stack-card tilt-card reveal"><span class="stack-number">04</span><h3>Platform & DevOps</h3><p>Entornos reproducibles, publicación segura y automatización.</p><div class="tech-cloud"><span>Docker</span><span>Linux</span><span>AWS</span><span>GitHub Actions</span><span>Apache</span><span>SSL/TLS</span><span>SSH</span></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-soft" id="projects">
+    <div class="container">
+      <div class="section-heading reveal"><span class="section-index">03 / SELECTED WORK</span><h2>Proyectos que resuelven operación real.</h2><p>Cada caso explica qué hace el sistema, no solamente qué tecnología utiliza.</p></div>
+      <div class="project-list">
+        <article class="project tilt-card reveal"><div class="project-meta"><span>01</span><em>FINTECH / INTEGRATION</em></div><div><h3>MoneyGram Integration Platform</h3><p class="project-summary">Backend empresarial para integrar aplicaciones internas con servicios MoneyGram mediante SOAP y AgentConnect.</p><div class="project-purpose"><b>¿Qué hace?</b><p>Centraliza el flujo de remesas: consulta catálogos y tarifas, valida datos de envío o cobro, ejecuta operaciones contra MoneyGram y normaliza respuestas a JSON, conservando auditoría de cada transacción.</p></div><div class="project-tech"><span>Java</span><span>Spring Boot</span><span>SOAP</span><span>PostgreSQL</span><span>Docker</span></div></div></article>
+        <article class="project tilt-card reveal"><div class="project-meta"><span>02</span><em>COMPLIANCE / PLATFORM</em></div><div><h3>PLD / FT Universal Platform</h3><p class="project-summary">Plataforma multi-tenant para prevención de lavado de dinero, riesgo e integración empresarial.</p><div class="project-purpose"><b>¿Qué hace?</b><p>Recibe clientes y operaciones desde otros sistemas, ejecuta reglas PLD/FT, calcula riesgo, genera alertas e integra servicios de Machine Learning sin quedar amarrada a un solo core.</p></div><div class="project-tech"><span>NestJS</span><span>Angular</span><span>Python</span><span>RabbitMQ</span><span>Keycloak</span></div></div></article>
+        <article class="project tilt-card reveal"><div class="project-meta"><span>03</span><em>FINANCIAL CORE</em></div><div><h3>CenterDivisa</h3><p class="project-summary">Plataforma financiera para centros cambiarios y cumplimiento regulatorio.</p><div class="project-purpose"><b>¿Qué hace?</b><p>Administra clientes, operaciones y sucursales, aplica reglas de negocio y automatiza reportes regulatorios FD1/DE1 mediante generación XML y validación XSD.</p></div><div class="project-tech"><span>Node.js</span><span>PostgreSQL</span><span>XML</span><span>XSD</span><span>Docker</span></div></div></article>
+        <article class="project tilt-card reveal"><div class="project-meta"><span>04</span><em>BUSINESS SYSTEM</em></div><div><h3>Enterprise POS Platform</h3><p class="project-summary">Punto de venta multiempresa y multisucursal para tiendas y restaurantes.</p><div class="project-purpose"><b>¿Qué hace?</b><p>Controla apertura de caja, turnos, ventas, compras y promociones; en restaurantes mantiene comandas abiertas y distribuye productos hacia cocina o bebidas según su área de preparación.</p></div><div class="project-tech"><span>Node.js</span><span>Express</span><span>Angular</span><span>Sequelize</span><span>PostgreSQL</span></div></div></article>
+        <article class="project tilt-card reveal"><div class="project-meta"><span>05</span><em>WEB / DEVOPS</em></div><div><h3>Axen Union Platform</h3><p class="project-summary">Ecosistema web con varios frontends y backends detrás de infraestructura contenerizada.</p><div class="project-purpose"><b>¿Qué hace?</b><p>Integra Angular, Node.js y Java bajo Apache reverse proxy, enruta servicios por path y automatiza despliegues con Docker, SSL y GitHub Actions.</p></div><div class="project-tech"><span>Angular</span><span>Node.js</span><span>Spring Boot</span><span>Apache</span><span>Docker</span></div></div></article>
+      </div>
+      <div class="archive-shell"><div class="archive-heading reveal"><span class="section-index">EXPERIENCIA COMPLEMENTARIA</span><h3>Más soluciones documentadas en el portafolio original.</h3><p>Planes de amortización, conversión JSON→Excel, banca móvil, roles y permisos, cargas masivas y monitoreo de personal de campo.</p></div><app-about></app-about></div>
+    </div>
+  </section>
+
+  <section class="section" id="architecture">
+    <div class="container"><div class="section-heading reveal"><span class="section-index">04 / ARCHITECTURE</span><h2>From idea to production.</h2><p>Un sistema es una cadena: experiencia, API, dominio, datos, runtime y operación.</p></div><div class="architecture-board reveal"><div class="arch-step"><span>01</span><small>EXPERIENCE</small><strong>Angular / Ionic / Web UI</strong></div><i></i><div class="arch-step"><span>02</span><small>EDGE</small><strong>API Gateway / Apache / REST</strong></div><i></i><div class="arch-step"><span>03</span><small>APPLICATION</small><strong>Java · Node.js · Python</strong></div><i></i><div class="arch-step"><span>04</span><small>DATA & SERVICES</small><strong>PostgreSQL · Redis · RabbitMQ · MinIO</strong></div><i></i><div class="arch-step"><span>05</span><small>RUNTIME</small><strong>Docker · Linux · AWS · CI/CD</strong></div></div></div>
+  </section>
+
+  <section class="section section-soft" id="ai">
+    <div class="container ai-grid"><div class="section-heading reveal"><span class="section-index">05 / NEXT FRONTIER</span><h2>AI como una capa más del sistema.</h2><p>Estoy ampliando mi trabajo hacia AI Engineering, agentes, servicios de Machine Learning, MLflow y automatización conectados con arquitecturas empresariales.</p><div class="ai-tags"><span>AI Agents</span><span>Python</span><span>ML Services</span><span>MLflow</span><span>LLM Integration</span></div></div><div class="terminal reveal delay-1"><div class="terminal-bar"><span></span><span></span><span></span><em>geras@portfolio:~</em></div><div class="terminal-body"><div><span class="prompt">$</span> whoami</div><div class="response">geras</div><div><span class="prompt">$</span> role</div><div class="response">Senior Software Developer</div><div><span class="prompt">$</span> stack --primary</div><div class="response">Java | Node.js | Python | Angular | PostgreSQL</div><div><span class="prompt">$</span> <span>{{ typedCommand }}</span><span class="cursor">█</span></div></div></div></div>
+  </section>
+
+  <section class="section philosophy"><div class="container reveal"><h2>Software no es solamente código. Es <span>arquitectura, datos, infraestructura, seguridad y negocio</span> trabajando juntos.</h2></div></section>
+
+  <section class="section" id="contact"><div class="container contact-layout"><div class="contact-copy reveal"><span class="section-index">06 / CONTACT</span><h2>¿Construimos algo?</h2><p>Me interesan los problemas donde arquitectura, integración y operación importan tanto como el código.</p><a class="btn btn-ghost" href="https://github.com/ElGeras90" target="_blank" rel="noreferrer">Ver GitHub ↗</a></div><div class="contact-form-panel tilt-card reveal"><div class="panel-label">SEND A MESSAGE</div><app-contact></app-contact></div></div></section>
+</main>
+
+<footer class="footer"><div class="container footer-inner"><div><strong>GERAS<span class="dot">.</span></strong><span>Senior Software Developer</span></div><p>Built with curiosity, engineering and a lot of coffee.</p><span>{{ currentYear }}</span></div></footer>
