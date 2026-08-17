@@ -1,17 +1,7 @@
-<div class="skills-container section" id="skills">
-    <h2 class="section-title">Mis Habilidades</h2>
-    <div class="row">
-        <div *ngFor="let skill of skills" class="col-md-4 col-sm-6">
-            <div #skillCard class="skill-card">
-                <img [src]="skill.icon" [alt]="skill.name" class="skill-icon">
-                <h3>{{ skill.name }}</h3>
-                <div class="progress">
-                    <div class="progress-bar" [style.width]="skill.level + '%'"
-                        role="progressbar">
-                        {{ skill.level }}%
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="skill-icon-grid">
+  <article *ngFor="let skill of skills" #skillCard class="skill-card">
+    <img [src]="skill.icon" [alt]="skill.name" class="skill-icon" loading="lazy">
+    <div><strong>{{ skill.name }}</strong><span>{{ skill.level }}%</span></div>
+    <div class="skill-meter"><i [style.width]="skill.level + '%'" aria-hidden="true"></i></div>
+  </article>
 </div>
